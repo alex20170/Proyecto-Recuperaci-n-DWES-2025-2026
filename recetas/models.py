@@ -5,7 +5,7 @@ from django.urls import reverse
 
 class Categoria(models.Model):
     nombre = models.CharField(max_length=100, unique=True)
-
+    descripcion = models.TextField(blank=True)
     def __str__(self):
         return self.nombre
 
@@ -34,3 +34,4 @@ class Comentario(models.Model):
 
     def __str__(self):
         return f'Comentario de {self.autor} en {self.receta}'
+
