@@ -5,22 +5,35 @@
 {% block content %}
     <h1>Lista de recetas</h1>
 
-    <form method="get">
-        <input type="text" name="q" placeholder="Buscar por título" value="{{ request.GET.q }}">
-        <input type="text" name="autor" placeholder="Buscar por autor" value="{{ request.GET.autor }}">
-        <input type="text" name="categoria" placeholder="Filtrar por categoría" value="{{ request.GET.categoria }}">
-        <button type="submit">Filtrar</button>
-    </form>
+    <div class="filtros">
+        <form method="get">
+            <p>
+                <label for="q">Buscar por título:</label>
+                <input type="text" id="q" name="q" placeholder="Ingresa el título" value="{{ request.GET.q }}">
+            </p>
+            <p>
+                <label for="autor">Buscar por autor:</label>
+                <input type="text" id="autor" name="autor" placeholder="Ingresa el nombre del autor" value="{{ request.GET.autor }}">
+            </p>
+            <p>
+                <label for="categoria">Filtrar por categoría:</label>
+                <input type="text" id="categoria" name="categoria" placeholder="Ingresa la categoría" value="{{ request.GET.categoria }}">
+            </p>
+            <button type="submit">Filtrar</button>
+        </form>
+    </div>
 
-    {% for receta in recetas %}
-        <div>
-            <h2>{{ receta.titulo }}</h2>
-            <p><strong>Categoría:</strong> {{ receta.categoria }}</p>
-            <p><strong>Autor:</strong> {{ receta.autor }}</p>
-            <p><strong>Fecha:</strong> {{ receta.fecha_creacion }}</p>
-            <a href="{% url 'detalle_receta' receta.pk %}">Ver detalle</a>
-        </div>
-    {% empty %}
-        <p>No hay recetas disponibles.</p>
-    {% endfor %}
+    <div class="recetas-container">
+        {% for receta in recetas %}
+            <div class="receta-card">
+                <h2>{{ receta.titulo }}</h2>
+                <p><strong>Categoría:</strong> {{ receta.categoria }}</p>
+                <p><strong>Autor:</strong> {{ receta.autor }}</p>
+                <p><strong>Fecha:</strong> {{ receta.fecha_creacion|date:"d/m/Y H:i" }}</p>
+                <a href="{% url 'detalle_receta' receta.pk %}">Ver detalle</a>
+            </div>
+        {% empty %}
+            <p style="grid-column: 1 / -1; text-align: center; color: white; font-size: 1.2rem;">No hay recetas disponibles.</p>
+        {% endfor %}
+    </div>
 {% endblock %}

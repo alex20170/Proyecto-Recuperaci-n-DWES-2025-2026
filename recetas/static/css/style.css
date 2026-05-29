@@ -1,0 +1,404 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: #333;
+}
+
+/* NAV */
+nav {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    font-size: 1rem;
+}
+
+nav a:hover {
+    color: #667eea;
+}
+
+nav span {
+    color: #fff;
+    margin-left: auto;
+    font-weight: 500;
+}
+
+nav button {
+    background: #667eea;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.3s ease;
+}
+
+nav button:hover {
+    background: #764ba2;
+}
+
+nav form {
+    display: flex;
+    margin-left: auto;
+}
+
+/* MAIN */
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* MESSAGES */
+main > p {
+    background: #d4edda;
+    color: #155724;
+    padding: 1rem;
+    border-radius: 4px;
+    border-left: 4px solid #28a745;
+    margin-bottom: 1rem;
+}
+
+/* HEADINGS */
+h1 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+h2 {
+    color: white;
+    font-size: 1.8rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+h3 {
+    color: white;
+    font-size: 1.3rem;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+/* LISTA DE RECETAS */
+.recetas-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.receta-card {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.receta-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.receta-card h2 {
+    color: #667eea;
+    margin-top: 0;
+}
+
+.receta-card p {
+    margin: 0.5rem 0;
+    color: #666;
+}
+
+.receta-card strong {
+    color: #333;
+}
+
+.receta-card a {
+    display: inline-block;
+    margin-top: 1rem;
+    background: #667eea;
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.receta-card a:hover {
+    background: #764ba2;
+}
+
+/* FILTROS */
+.filtros {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.filtros p {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+.filtros label {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.filtros input,
+.filtros select {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.filtros button {
+    background: #667eea;
+    color: white;
+    padding: 0.7rem 2rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.3s ease;
+}
+
+.filtros button:hover {
+    background: #764ba2;
+}
+
+/* DETALLE RECETA */
+.receta-detalle {
+    background: white;
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.receta-detalle h1 {
+    color: #667eea;
+    text-shadow: none;
+    margin-bottom: 1rem;
+}
+
+.receta-detalle h2 {
+    color: #667eea;
+}
+
+.receta-detalle p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.receta-acciones {
+    display: flex;
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.receta-acciones a {
+    background: #667eea;
+    color: white;
+    padding: 0.7rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.receta-acciones a:hover {
+    background: #764ba2;
+}
+
+.receta-acciones a:last-child {
+    background: #dc3545;
+}
+
+.receta-acciones a:last-child:hover {
+    background: #c82333;
+}
+
+/* COMENTARIOS */
+.comentarios {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.comentarios h2 {
+    color: #667eea;
+    margin-top: 0;
+}
+
+.comentario {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    border-left: 4px solid #667eea;
+}
+
+.comentario strong {
+    color: #333;
+}
+
+.comentario p {
+    color: #666;
+    margin-top: 0.5rem;
+}
+
+.comentario a {
+    color: #dc3545;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.comentario a:hover {
+    text-decoration: underline;
+}
+
+.sin-comentarios {
+    text-align: center;
+    color: #999;
+    padding: 2rem;
+}
+
+/* FORMULARIOS */
+form {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+form p {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+form input,
+form textarea,
+form select {
+    padding: 0.7rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+form textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+form button {
+    background: #667eea;
+    color: white;
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: background 0.3s ease;
+}
+
+form button:hover {
+    background: #764ba2;
+}
+
+/* LINKS */
+a {
+    color: #667eea;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* BOTÓN VOLVER */
+.volver {
+    display: inline-block;
+    background: #6c757d;
+    color: white;
+    padding: 0.7rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+    margin-top: 1rem;
+}
+
+.volver:hover {
+    background: #5a6268;
+    text-decoration: none;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
+
+    nav {
+        gap: 1rem;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav span {
+        margin-left: 0;
+    }
+
+    nav form {
+        margin-left: 0;
+    }
+
+    .recetas-container {
+        grid-template-columns: 1fr;
+    }
+
+    main {
+        padding: 0 0.5rem;
+    }
+}
