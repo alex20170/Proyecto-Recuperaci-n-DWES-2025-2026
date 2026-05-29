@@ -8,18 +8,25 @@
 <body>
     <nav>
         <a href="{% url 'lista_recetas' %}">Inicio</a>
-        
+
         {% if user.is_authenticated %}
             <a href="{% url 'crear_receta' %}">Nueva receta</a>
-            <span>{{ user.username }}</span>
-            <form method="POST" action="{% url 'logout' %}">
+            <span>Hola, {{ user.username }}</span>
+
+            <form method="post" action="{% url 'logout' %}" style="display:inline;">
                 {% csrf_token %}
-                <button type="submit">Logout</button>
+                <button type="submit">Cerrar sesión</button>
             </form>
         {% else %}
-            <a href="{% url 'login' %}">Login</a>
+            <a href="{% url 'login' %}">Iniciar sesión</a>
         {% endif %}
     </nav>
+
+    {% if messages %}
+        {% for message in messages %}
+            <p>{{ message }}</p>
+        {% endfor %}
+    {% endif %}
 
     <main>
         {% block content %}{% endblock %}

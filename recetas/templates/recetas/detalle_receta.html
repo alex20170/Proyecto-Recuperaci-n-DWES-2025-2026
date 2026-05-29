@@ -10,10 +10,10 @@
     <p><strong>Fecha de creación:</strong> {{ receta.fecha_creacion|date:"d/m/Y H:i" }}</p>
 
     <h2>Ingredientes</h2>
-    <p>{{ receta.ingredientes }}</p>
+    <p>{{ receta.ingredientes|linebreaksbr }}</p>
 
     <h2>Pasos</h2>
-    <p>{{ receta.pasos }}</p>
+    <p>{{ receta.pasos|linebreaksbr }}</p>
 
     <h2>Tiempo de preparación</h2>
     <p>{{ receta.tiempo_preparacion }} minutos</p>
@@ -50,4 +50,6 @@
     {% else %}
         <p>Debes iniciar sesión para comentar.</p>
     {% endif %}
+
+    <a href="{% url 'lista_recetas' %}">Volver a la lista</a>
 {% endblock %}

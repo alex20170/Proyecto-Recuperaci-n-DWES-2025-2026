@@ -10,7 +10,6 @@ class ListaRecetasView(ListView):
     model = Receta
     template_name = 'recetas/lista_recetas.html'
     context_object_name = 'recetas'
-    ordering = ['-fecha_creacion']
 
     def get_queryset(self):
         queryset = Receta.objects.all()
