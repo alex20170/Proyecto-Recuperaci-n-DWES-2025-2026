@@ -7,6 +7,7 @@ from .views import (
     EliminarRecetaView,
     crear_comentario,
     eliminar_comentario,
+    registrar,
 )
 
 urlpatterns = [
@@ -17,4 +18,5 @@ urlpatterns = [
     path('receta/<int:pk>/eliminar/', EliminarRecetaView.as_view(), name='eliminar_receta'),
     path('receta/<int:pk>/comentar/', crear_comentario, name='crear_comentario'),
     path('comentario/<int:pk>/eliminar/', eliminar_comentario, name='eliminar_comentario'),
+    path('registrar/', registrar, name='registrar'),
 ]

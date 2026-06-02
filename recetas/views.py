@@ -2,9 +2,10 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.decorators import login_required
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
-from django.shortcuts import get_object_or_404, redirect
+from django.shortcuts import get_object_or_404, redirect, render
+from django.contrib.auth import authenticate, login
 from .models import Receta, Comentario
-from .forms import RecetaForm, ComentarioForm
+from .forms import RecetaForm, ComentarioForm, RegistroForm
 
 class ListaRecetasView(ListView):
     model = Receta
@@ -95,3 +96,19 @@ def eliminar_comentario(request, pk):
         return redirect('detalle_receta', pk=receta_pk)
     
     return redirect('detalle_receta', pk=comentario.receta.pk)
+
+
+def registrar(request):
+    if request.user.is_authenticated:
+        return redirect('lista_recetas')
+    
+    if request.method == 'POST':
+        form = RegistroForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect('lista_recetas')
+    else:
+        form = RegistroForm()
+    
+    return render(request, 'registration/registrar.html', {'form': form})

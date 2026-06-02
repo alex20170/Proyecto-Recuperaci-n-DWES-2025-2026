@@ -1,9 +1,9 @@
 """
-ASGI config for proyecto_recetas project.
+Configuración ASGI para el proyecto proyecto_recetas.
 
-It exposes the ASGI callable as a module-level variable named ``application``.
+Expone el llamable ASGI como una variable a nivel de módulo denominada ``application``.
 
-For more information on this file, see
+Para más información sobre este archivo, ver
 https://docs.djangoproject.com/en/5.2/howto/deployment/asgi/
 """
 
